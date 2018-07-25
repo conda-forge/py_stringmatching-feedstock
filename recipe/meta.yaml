@@ -12,12 +12,15 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 0
+  number: 1
   script: python -m pip install --no-deps --ignore-installed .
   skip: True  # [not x86_64]
 
 requirements:
   build:
+    - {{ pin_compatible('numpy') }}
+    - {{ compiler('c') }}
+  host:
     - {{ compiler('c') }}
     - msinttypes  # [vc9]
   host:
@@ -29,7 +32,6 @@ requirements:
     - six
   run:
     - python
-    - {{ pin_compatible('numpy') }}
     - six
 
 test:
@@ -46,9 +48,9 @@ about:
   license_file: LICENSE
   summary: 'Python library for string matching.'
   description: |
-    This project seeks to build a Python software package that 
-    consists of a comprehensive and scalable set of string tokenizers 
-    (such as alphabetical tokenizers, whitespace tokenizers) and 
+    This project seeks to build a Python software package that
+    consists of a comprehensive and scalable set of string tokenizers
+    (such as alphabetical tokenizers, whitespace tokenizers) and
   doc_url: http://anhaidgroup.github.io/py_stringmatching/
   dev_url: https://github.com/anhaidgroup/py_stringmatching
 
