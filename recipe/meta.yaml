@@ -27,6 +27,7 @@ requirements:
     - cython
     - numpy
     - six
+    - libgfortran
   run:
     - python
     - {{ pin_compatible('numpy') }}
