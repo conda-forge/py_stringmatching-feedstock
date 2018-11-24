@@ -7,14 +7,14 @@ package:
   version: {{ version }}
 
 source:
-  fn: {{ name }}-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
 
 build:
-  number: 1
-  script: python -m pip install --no-deps --ignore-installed .
+  number: 1001
+  script: "{{ PYTHON }} -m pip install . --no-deps -vv"
   skip: True  # [not x86_64]
+  skip: Ture  # [py>36]
 
 requirements:
   build:
@@ -23,7 +23,6 @@ requirements:
   host:
     - python
     - pip
-    - setuptools
     - cython
     - numpy
     - six
