@@ -15,6 +15,7 @@ build:
   number: 1001
   script: python -m pip install --no-deps --ignore-installed .
   skip: True  # [not x86_64]
+  skip: Ture  # [py>36]
 
 requirements:
   build:
