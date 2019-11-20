@@ -15,10 +15,10 @@ build:
 requirements:
   build:
     - {{ compiler('c') }}
-    - msinttypes  # [win and py2k]
   host:
     - python
     - pip
+    - msinttypes  # [win and vc<14]
     - cython
     - numpy
     - six
