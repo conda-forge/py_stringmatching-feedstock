@@ -1,25 +1,22 @@
-{% set name = "py_stringmatching" %}
 {% set version = "0.4.1" %}
-{% set sha256 = "c46db1e855cef596dfbbe1bd48fcabb30736479eff602c2bf88af10f998f1532" %}
 
 package:
-  name: {{ name|lower }}
+  name: py_stringmatching
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: {{ sha256 }}
+  url: https://pypi.io/packages/source/p/py_stringmatching/py_stringmatching-{{ version }}.tar.gz
+  sha256: c46db1e855cef596dfbbe1bd48fcabb30736479eff602c2bf88af10f998f1532
 
 build:
   number: 0
-  script: "{{ PYTHON }} -m pip install . --no-deps -vv"
   skip: True  # [not x86_64]
-  skip: Ture  # [py>36]
+  script: "{{ PYTHON }} -m pip install . --no-deps -vv"
 
 requirements:
   build:
     - {{ compiler('c') }}
-    - msinttypes  # [vc9]
+    - msinttypes  # [win and vc<14]
   host:
     - python
     - pip
