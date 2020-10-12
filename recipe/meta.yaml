@@ -11,7 +11,11 @@ source:
 build:
   number: 2
   skip: True  # [not x86_64]
-  script: "{{ PYTHON }} -m pip install . --no-deps -vv"
+  script: 
+    # delete pkginfo to force recythonizing
+    - "rd /s /q PKG-INFO"   # [win and (py>=39)]
+    - "rm -rf PKG-INFO"     # [unix and (py>=39)]
+    - "{{ PYTHON }} -m pip install . --no-deps -vv"
 
 requirements:
   build:
