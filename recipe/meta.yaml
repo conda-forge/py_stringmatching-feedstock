@@ -1,4 +1,4 @@
-{% set version = "0.4.1" %}
+{% set version = "0.4.2" %}
 
 package:
   name: py_stringmatching
@@ -6,12 +6,12 @@ package:
 
 source:
   url: https://pypi.io/packages/source/p/py_stringmatching/py_stringmatching-{{ version }}.tar.gz
-  sha256: c46db1e855cef596dfbbe1bd48fcabb30736479eff602c2bf88af10f998f1532
+  sha256: c87f62698fba1612a18f8f44bd57f0c4e70aac2d7ca6dfb6ed46dabd2194453c
 
 build:
-  number: 1
-  skip: True  # [not x86_64]
-  script: "{{ PYTHON }} -m pip install . --no-deps -vv"
+  number: 0
+  skip: true  # [not x86_64]
+  script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
   build:
@@ -40,7 +40,7 @@ about:
   license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE
-  summary: 'Python library for string matching.'
+  summary: Python library for string matching.
   description: |
     This project seeks to build a Python software package that 
     consists of a comprehensive and scalable set of string tokenizers 
