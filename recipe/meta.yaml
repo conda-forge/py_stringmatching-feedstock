@@ -16,7 +16,7 @@ build:
 requirements:
   build:
     - {{ compiler('c') }}
-    - msinttypes  # [win and vc<14]
+    - {{ stdlib('c') }}
   host:
     - python
     - pip
